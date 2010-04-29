@@ -1,0 +1,62 @@
+<html>
+
+	<head>
+		<style>
+			#pwnies {cursor: pointer; }
+			body, #pwnies{ font-size:20px;}
+		</style>
+		
+		<script type="text/javascript" src="http://yui.yahooapis.com/3.0.0/build/yui/yui-min.js"></script>
+		
+		<script>
+
+		"use strict";
+
+		/*global
+		YUI
+		*/
+
+		YUI({
+			combine: true,
+			modules: {
+				'yui-cornify': {
+					fullpath: 'http://github.com/drgath/yui-cornify/raw/master/yui-cornify.js'
+				}
+			}
+		}).use('node', 'yui-cornify', function (Y) {
+
+			var clicks = 0, 
+				msgs = [
+					'OMG, this is so much fun',
+					'Weeeeeeee!!!!!',
+					'I can\'t stop clicking!',
+					'OMG, this is so much fun',
+					'More! More! Give me more!',
+					'They are so pretty!!!'
+				];
+
+			Y.one('#pwnies').on('click', function () {
+				var msg;
+
+				clicks = clicks + 1;
+
+				if (clicks % 3 === 0) {
+					do {
+						msg = msgs[Math.floor(Math.random() * msgs.length)];
+					} while (msg === Y.one('#pwnies').get('value'));
+					Y.one('#pwnies').set('value', msg);
+				}
+
+				Y.addCorn();
+			});
+
+		});
+
+		</script>
+	</head>
+
+	<body>
+		--&gt; <input type="button" id="pwnies" value="I really want to see something happy, so I'm going to click this button" /> &lt;--
+	</body>
+
+</html>

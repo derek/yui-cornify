@@ -12,15 +12,18 @@
 		YUI
 		*/
 		YUI({
+			combine: true,
 			modules: {
 				'yui-cornify': {
-					fullpath: 'http://derekgathright.com/yahoo/yui/yui-cornify/yui-cornify.js'
+					fullpath: 'http://github.com/drgath/yui-cornify/raw/master/yui-cornify.js'
 				}
 			}
-		}).use('node', 'gallery-event-konami', 'yui-cornify', function (Y) {
-		    Y.one('body').on('konami', function (e) {
-		        Y.addCorn();
-		    });
+		}).use('gallery-event-konami', 'yui-cornify', function (Y) {
+			
+		    Y.one('body').on('konami', function() {
+				Y.addCorn();
+			});
+			
 		});
 
 		</script>
