@@ -1,0 +1,32 @@
+<html>
+
+	<head>
+		
+		<script type="text/javascript" src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
+		
+		<script>
+
+		"use strict";
+
+		/*global
+		YUI
+		*/
+		YUI({
+			modules: {
+				'yui-cornify': {
+					fullpath: 'http://derekgathright.com/yahoo/yui/yui-cornify/yui-cornify.js'
+				}
+			}
+		}).use('node', 'gallery-event-konami', 'yui-cornify', function (Y) {
+		    Y.one('body').on('konami', function (e) {
+		        Y.addCorn();
+		    });
+		});
+
+		</script>
+		
+	</head>
+
+	<body></body>
+
+</html>

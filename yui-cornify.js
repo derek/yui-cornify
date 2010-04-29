@@ -1,0 +1,35 @@
+"use strict";
+
+/*globals
+	YUI: true, document, cornify_add 
+*/
+
+YUI.add('yui-cornify', function (Y) {
+	
+	function loadScript(url, callback){
+	    var script = document.createElement("script");
+	    script.type = "text/javascript";
+
+	    if (script.readyState) {  //IE
+	        script.onreadystatechange = function(){
+	            if (script.readyState == "loaded" ||
+	                    script.readyState == "complete"){
+	                script.onreadystatechange = null;
+	                callback();
+	            }
+	        };
+	    } else {  //Others
+	        script.onload = function(){
+	            callback();
+	        };
+	    }
+
+	    script.src = url;
+	    document.getElementsByTagName("head")[0].appendChild(script);
+	}
+	
+	loadScript("http://www.cornify.com/js/cornify.js", function(){
+		Y.addCorn = cornify_add;
+	});
+	
+});
